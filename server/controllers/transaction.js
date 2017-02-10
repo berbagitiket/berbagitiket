@@ -7,7 +7,7 @@ module.exports = {
       userid: req.body.userid,
       firstname: req.body.firstname,
       lastname: req.body.lastname,
-      email: req.body.username,
+      email: req.body.email,
       phone: req.body.phone,
       birthdate: req.body.birthdate,
       title: req.body.title,
@@ -31,7 +31,7 @@ module.exports = {
     })
   },
   getSingleTransaction: function(req,res){
-    Transaction.find({_id: req.params.id}).then(function(data){
+    Transaction.findOne({_id: req.params.id}).then(function(data){
       res.send(data)
     })
   },
