@@ -4,5 +4,5 @@ var user = require('../controllers/users')
 
 
 router.post('/signUp',user.signUp)
-
+router.post('/logIn',user.logIn)
 module.exports= router
