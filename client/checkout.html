@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+    <title></title>
+  </head>
+  <body class="container">
+
+    <script>
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 1// Creates a dropdown of 15 years to control year
+    });
+
+        function test() {
+          // console.log($("#depart").val())
+          var d = new Date(`${$("#depart").val()}`),
+          month = '' + (d.getMonth() + 1),
+          day = '' + d.getDate(),
+          year = d.getFullYear();
+          console.log(typeof(d));
+          console.log(typeof(("#depart").val()));
+          if (month.length < 2) month = '0' + month;
+          if (day.length < 2) day = '0' + day;
+          console.log([year, month, day].join('-'));
+          // return [year, month, day].join('-');
+        }
+      </script>
+   </body>
+</html>
