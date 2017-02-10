@@ -1,4 +1,5 @@
 const Transaction = require('../models/transaction');
+const User = require('../models/user');
 
 module.exports = {
   createTransaction: function(req,res) {
