@@ -9,6 +9,6 @@ router.get('/:id', transaction.getSingleTransaction);
 
 router.put('/:id/paid', transaction.updateStatus);
 
-router.delete('/delete/:id', transaction.removeTransaction);
+router.delete('/:id/deleted', transaction.removeTransaction);
 
 module.exports = router;
