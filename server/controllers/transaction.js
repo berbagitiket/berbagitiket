@@ -2,7 +2,7 @@ const Transaction = require('../models/transaction');
 const User = require('../models/user');
 
 module.exports = {
-  createTransaction: function(req,res) {
+  newTransaction: function(req,res) {
     let newTransaction = Transaction({
       userid: req.body.userid,
       firstname: req.body.firstname,
@@ -31,12 +31,12 @@ module.exports = {
     })
   },
   getSingleTransaction: function(req,res){
-    Transaction.find({_id: req.body.id}).then(function(data){
+    Transaction.find({_id: req.params.id}).then(function(data){
       res.send(data)
     })
   },
   updateStatus: function(req,res) {
-    Transaction.findOneAndUpdate({_id: req.body.id},{
+    Transaction.findOneAndUpdate({_id: req.params.id},{
       status:"PAID",
       updatedAt: new Date()
     },{new:true}).then(function(data) {
