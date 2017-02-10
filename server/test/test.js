@@ -5,9 +5,9 @@ var userController = require('../controllers/users')
 var userModel = require('../models/user')
 var transController = require('../controllers/transaction')
 var transModel = require('../models/transaction')
-
 mongoose.connect('mongodb://localhost/berbagitiket');
 mongoose.Promise = global.Promise;
+
 describe('test sign up', function() {
   describe('test user baru', function() {
     var rand = Math.floor((Math.random() * 999) + 1);
@@ -22,7 +22,7 @@ describe('test sign up', function() {
     }
     var res = {
       send: function(x){
-        console.log(x);
+        return x
       }
     }
     it('seharusnya mengembalikan new user', function() {
@@ -49,7 +49,7 @@ describe('test sign up', function() {
         return err;
       }
     }
-    it('seharusnya membuat tidak membuat objek baru', function() {
+    it('seharusnya tidak membuat objek baru', function() {
       userController.signUp(req,res)
       userModel.find({where:{email:req.body.email}}).then(function(newMail){
         newMail.should.equal([])
@@ -61,7 +61,7 @@ describe('test sign up', function() {
       var rand = Math.floor((Math.random() * 999) + 1);
       var req = {
         body:{
-          firstname:'timgio',
+          firstname:'tim',
           lastname: 'gio',
           email:'',
           password:'123',
@@ -73,7 +73,7 @@ describe('test sign up', function() {
           return err;
         }
       }
-      it('seharusnya membuat tidak membuat objek baru', function() {
+      it('seharusnya tidak membuat objek baru', function() {
         userController.signUp(req,res)
         userModel.find({where:{firstname:req.body.firstname}}).then(function(newMail){
           newMail.should.equal([])
@@ -97,7 +97,7 @@ describe('test sign up', function() {
             return err;
           }
         }
-        it('seharusnya membuat tidak membuat objek baru', function() {
+        it('seharusnya tidak membuat objek baru', function() {
           userController.signUp(req,res)
           userModel.find({where:{email:req.body.email}}).then(function(newMail){
             newMail.should.equal([])
