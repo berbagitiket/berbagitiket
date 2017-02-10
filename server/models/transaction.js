@@ -22,7 +22,7 @@ const transactionSchema = new Schema({
     class: String,
     flightnumber: String
   },
-  status: String,
+  status: String
 },{
   timestamps: true
 })

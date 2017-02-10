@@ -23,7 +23,7 @@ module.exports = {
         price: req.body.price,
         class: req.body.class,
         flightnumber: req.body.flightnumber
-      }
+      },
       status: "UNPAID"
     })
     newTransaction.save().then(function(data){
@@ -44,7 +44,7 @@ module.exports = {
     })
   },
   removeTransaction: function(req,res) {
-    Transaction.findOneAndRemove({~id: req.body.id}).then(function(data){
+    Transaction.findOneAndRemove({_id: req.params.id}).then(function(data){
       res.send(`Transaction with id:${req.params.id} has been deleted`)
     })
   }
