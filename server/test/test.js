@@ -6,7 +6,7 @@ var userModel = require('../models/user')
 var transController = require('../controllers/transaction')
 var transModel = require('../models/transaction')
 
-mongoose.connect('mongodb://localhost/berbagitiket');
+mongoose.createConnection('mongodb://localhost/berbagitiket')
 mongoose.Promise = global.Promise;
 describe('test sign up', function() {
   describe('test user baru', function() {
@@ -49,7 +49,7 @@ describe('test sign up', function() {
         return err;
       }
     }
-    it('seharusnya membuat tidak membuat objek baru', function() {
+    it('seharusnya tidak membuat objek baru', function() {
       userController.signUp(req,res)
       userModel.find({where:{email:req.body.email}}).then(function(newMail){
         newMail.should.equal([])
