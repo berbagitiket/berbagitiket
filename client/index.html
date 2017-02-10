@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+    <title></title>
+  </head>
+  <body class="container">
+
+    <nav class="tranparent">
+    <div class="nav-wrapper transparent">
+      <a href="#" class="brand-logo navbar-text">Berbagi Tiket</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a class="navbar-text" href="#">tes</a></li>
+        <li><a class="navbar-text" href="#">tes</a></li>
+        <li><a class="navbar-text" href="#">tes</a></li>
+      </ul>
+    </div>
+    </nav>
+
+    <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <ul class="tabs">
+            <li class="tab col s3"><a class="active" href="#flight">Flight</a></li>
+            <li class="tab col s3"><a href="#train">Train</a></li>
+            <li class="tab col s3"><a href="#hotel">Hotel</a></li>
+          </ul>
+        </div>
+        <div id="flight" class="col s12">
+          <div class="row margin">
+            <div class="input-field col s6">
+              <i class="material-icons prefix">flight_takeoff</i>
+              <input id="origin" type="text">
+              <label for="username" class="center-align">Origin</label>
+            </div>
+            <div class="input-field col s6">
+              <i class="material-icons prefix">flight_land</i>
+              <input id="destination" type="text">
+              <label for="username" class="center-align">Destination</label>
+            </div>
+          </div>
+          <div class="row margin">
+            <div class="input-field col s6">
+              <i class="material-icons prefix">alarm</i>
+              <input id="depart" type="date" class="datepicker">
+              <label for="depart" class="center-align">Depart</label>
+            </div>
+            <div class="input-field col s6">
+              <i class="material-icons prefix">alarm_on</i>
+              <input id="arrive" type="date" class="datepicker">
+              <label for="arrive" class="center-align">Arrive</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <a href="#" onclick="test()" class="btn col s12 btn-register">Search</a>
+            </div>
+          </div>
+        </div>
+        <div id="train" class="col s12">Coming soon..</div>
+        <div id="hotel" class="col s12">Coming soon..</div>
+      </div>
+    </div>
+</div>
+
+
+      <div class="row">
+        <div class="col s12">
+          <div class="card darken-1">
+            <div class="card-content">
+              <div class="row margin">
+                <div class="input-field col s3">
+                  <img class="responsive-img" src="http://placehold.it/350x150">
+                  <p>Airlines Name</p>
+                </div>
+                <div class="input-field col s2">
+                  <p class="detail-main">Origin</p>
+                  <p class="sub-detail-main">Jakarta</p>
+                  <p class="detail-main">Depart</p>
+                  <p class="sub-detail-main">01/01/2017</p>
+                </div>
+                <div class="input-field col s2">
+                  <p class="detail-main">Destination</p>
+                  <p class="sub-detail-main">Bandung</p>
+                  <p class="detail-main">Arrive</p>
+                  <p class="sub-detail-main">02/01/2017</p>
+                </div>
+                <div class="input-field col s2">
+                  <p class="detail-main">Duration</p>
+                  <p class="sub-detail-main">1 Hours</p>
+                </div>
+                <div class="input-field col s3">
+                  <p class="detail-main">1500000</p>
+                  <input type="button" class="btn orange darken-3" value="PESAN">
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+    </div>
+    <script>
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 1// Creates a dropdown of 15 years to control year
+    });
+      </script>
+      <script type="text/javascript">
+      function test() {
+        // tanggal
+        var d = new Date(`${$("#depart").val()}`),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+        if (month.length < 2) month = '0' + month;
+        if (day.length < 2) day = '0' + day;
+        var fixDate = [year, month, day].join('-');
+
+        // origin
+        var origin = $('#origin').val()
+        var depart = $('#depart').val()
+      }
+      </script>
+   </body>
+</html>
