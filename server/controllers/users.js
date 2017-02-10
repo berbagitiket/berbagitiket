@@ -16,27 +16,25 @@ module.exports={
     newUser.save(function(err) {
       if (err) {
         if (err.errors.firstname) {
-          throw err.errors.firstname.message
+          res.send(err.errors.firstname.message)
         }
         else if (err.errors.email) {
-          throw err.errors.email.message
+          res.send(err.errors.email.message)
         }
         else if (err.errors.phone) {
-          throw err.errors.phone.message
+          res.send(err.errors.phone.message)
         }
         else if (err.errors.password) {
-          throw err.errors.password.message
+          res.send(err.errors.password.message)
         }
       }
       else{
-
         res.send(newUser);
       }
     });
   },
   logIn: function(req,res){
-    User.findOne({username:req.body.username}).then(function(user){
-      console.log(user.password);
+    User.findOne({email:req.body.email}).then(function(user){
       if(!user){
         res.send('user not found!')
       }
@@ -44,7 +42,7 @@ module.exports={
         res.send('wrong pass!')
       }
       else{
-        var token = jwt.sign({username:user.username,email:user.email},'rahasiabangetnih')
+        var token = jwt.sign({id:user._id,email:user.email},'rahasiabangetnih')
         res.send({token:token})
       }
     })
