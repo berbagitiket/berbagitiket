@@ -12,8 +12,8 @@ router.get('/', function(req, res, next) {
 
 
 
-router.get('/gettickets', function(req, res, next) {
-    request('https://www.tiket.com/pesawat/cari?d=CGK&a=BPN&date=2017-02-22&adult=1&child=0&infant=0', function(error, response, html) {
+router.post('/gettickets', function(req, res, next) {
+    request(req.body.url, function(error, response, html) {
         if (!error && response.statusCode == 200) {
             var $ = cheerio.load(html);
             var data = $("#tbody_depart tr")
@@ -30,13 +30,13 @@ router.get('/gettickets', function(req, res, next) {
     })
 });
 
-router.get('/getreservasi', function(req, res, next) {
-    request('https://www.pegipegi.com/tiket-pesawat/sys/#/search-results/JKTA/BPN/16-02-2017/1/0/0', function(error, response, html) {
-        if (!error && response.statusCode == 200) {
-            res.send(html)
-        }
-    })
-});
+// router.get('/getreservasi', function(req, res, next) {
+//     request('https://www.pegipegi.com/tiket-pesawat/sys/#/search-results/JKTA/BPN/16-02-2017/1/0/0', function(error, response, html) {
+//         if (!error && response.statusCode == 200) {
+//             res.send(html)
+//         }
+//     })
+// });
 
 
 

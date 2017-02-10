@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/berbagitiket');
 mongoose.Promise = global.Promise;
 
+var index = require('./routes/index')
 var transaction = require('./routes/transactions');
 var user = require('./routes/users');
 var cors = require('cors')//tambahan agar halaman bisa diakses dari client
@@ -30,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/transactions', transaction);
 app.use('/api/users', user);
+app.use('/',index)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
