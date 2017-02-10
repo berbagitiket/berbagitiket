@@ -32,6 +32,17 @@
       <h5 class="header center orange-text">Contact Information</h5>
       <div class="row center">
         <form class="col s8 offset-s2">
+          <div class="row center">
+            <div class="input-field col s12">
+              <select id="select-title">
+                <option value="" disabled selected>Choose your Title</option>
+                <option value="Mr.">Mr.</option>
+                <option value="Mrs.">Mrs.</option>
+                <option value="Ms.">Ms.</option>
+              </select>
+              <label>Title</label>
+            </div>
+          </div>
           <div class="row">
             <div class="input-field col s6">
               <input id="first_name" type="text" class="validate">
@@ -65,18 +76,28 @@
           </div>
           <div class="row center">
             <div class="input-field col s12">
-              <select>
-                <option value="" disabled selected>Choose your Title</option>
-                <option value="Mr.">Mr.</option>
-                <option value="Mrs.">Mrs.</option>
-                <option value="Ms.">Ms.</option>
-              </select>
-              <label>Title</label>
+              <i class="material-icons prefix">info</i>
+              <input id="icon_airline" type="tel" class="validate" value="ABC" readonly="true">
+              <label for="icon_airline">Airline</label>
             </div>
           </div>
           <div class="row center">
             <div class="input-field col s12">
-              <select>
+              <i class="material-icons prefix">info</i>
+              <input id="icon_flightnumber" type="tel" class="validate" value="ABC" readonly="true">
+              <label for="icon_flightnumber">Flight Number</label>
+            </div>
+          </div>
+          <div class="row center">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">info</i>
+              <input id="icon_price" type="tel" class="validate" value="ABC" readonly="true">
+              <label for="icon_price">Price</label>
+            </div>
+          </div>
+          <div class="row center">
+            <div class="input-field col s12">
+              <select id="payment">
                 <option value="" disabled selected>Choose your payment method</option>
                 <option value="Transfer">Transfer</option>
                 <option value="Credit Card">Credit Card</option>
@@ -88,7 +109,7 @@
         </form>
       </div>
       <div class="row center">
-        <a href="#" id="download-button" class="btn-large waves-effect waves-light orange">Submit</a>
+        <a href="#" id="download-button" class="btn-large waves-effect waves-light orange" onclick="submit()">Submit</a>
       </div>
       <br><br>
 
@@ -116,6 +137,37 @@
     $(document).ready(function() {
     $('select').material_select();
   });
+
+
+      $(document).ready(function(){
+            key = localStorage.key(0);
+            var dataPesawat = JSON.parse(localStorage.getItem(key))
+            $("#icon_airline").val(dataPesawat['data-airlinesname'])
+            $("#icon_flightnumber").val(dataPesawat['data-airlines'])
+            $("#icon_price").val(dataPesawat['data-price'])
+
+      })
+      function submit(){
+        $.ajax({
+          url  : "http://localhost:3000/api/transactions/new",
+          type : "POST",
+          data: {
+            title: $('#select-title').val(),
+            firstname : $('#first_name').val(),
+            lastname : $('#last_name').val(),
+            email   : $('#icon_email').val(),
+            phone   : $('#icon_telephone').val(),
+            birthdate   : $('#icon_calendar').val(),
+            airline   : $('#icon_airline').val(),
+            flightnumber   : $('#icon_flightnumber').val(),
+            price   : $('#icon_price').val(),
+            payment   : $('#payment').val(),
+          },
+          success: function(result) {
+              alert("Transaksi Sukses || Berbagi Tiket Butuh Funding")
+          }
+        })
+      }
   </script>
   </body>
 </html>

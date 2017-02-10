@@ -1,16 +1,77 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-    <link rel="stylesheet" href="css/style.css">
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
-    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Checkout - Berbagi Tiket</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   </head>
-  <body class="container">
+  <body>
+    <div class="navbar-fixed">
+      <nav class="light-blue lighten-1" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo font-navbar">Berbagi Tiket</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="#">Back</a></li>
+          </ul>
+
+          <ul id="nav-mobile" class="side-nav">
+            <li><a href="#">Back</a></li>
+          </ul>
+          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="input-field col s12 m6 l6">
+          <div class="card-panel">
+            <div class="row margin">
+              <h5>Passenger Info</h5>
+              <p>Title</p>
+              <input type="text" value="Mr." disabled>
+              <p>First Name</p>
+              <input type="text" value="Yoni" disabled>
+              <p>Last Name</p>
+              <input type="text" value="Setiawan" disabled>
+              <p>Birthdate</p>
+              <input type="text" value="17 Agustus 1945" disabled>
+              <p>Email</p>
+              <input type="text" value="yoni@setiawan.com" disabled>
+              <p>Phone</p>
+              <input type="text" value="0812371231" disabled>
+            </div>
+            </div>
+          </div>
+
+        <div class="input-field col s12 m6 l6">
+          <div class="card-panel">
+            <div class="row margin">
+              <h5>Flight Info</h5>
+              <p>Origin</p>
+              <input type="text" value="Jakarta" disabled>
+              <p>  Destination  </p>
+              <input type="text" value="Balikpapan" disabled>
+              <p>Date  </p>
+              <input type="text" value="12 Agustus 2017" disabled>
+              <p>    Depart      </p>
+              <input type="text" value="08.30" disabled>
+              <p>      Arrive  </p>
+              <input type="text" value="08.40" disabled>
+              <p>Price</p>
+              <input type="text" value="1500000" disabled>
+            </div>
+          </div>
+        </div>
+
+        </div>
+        <a href="http://127.0.0.1:8080/" id="download-button" class="btn-large waves-effect waves-light orange">Confirmation</a>
+    </div>
 
     <script>
     $('.datepicker').pickadate({
@@ -18,19 +79,7 @@
     selectYears: 1// Creates a dropdown of 15 years to control year
     });
 
-        function test() {
-          // console.log($("#depart").val())
-          var d = new Date(`${$("#depart").val()}`),
-          month = '' + (d.getMonth() + 1),
-          day = '' + d.getDate(),
-          year = d.getFullYear();
-          console.log(typeof(d));
-          console.log(typeof(("#depart").val()));
-          if (month.length < 2) month = '0' + month;
-          if (day.length < 2) day = '0' + day;
-          console.log([year, month, day].join('-'));
-          // return [year, month, day].join('-');
-        }
+    
       </script>
    </body>
 </html>

@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
     <title>Contact Information - Berbagi Tiket</title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet">
-    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  </head>
-  <body>
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
 
     <div class="navbar-fixed">
-      <nav class="light-blue lighten-1" role="navigation">
-        <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo font-navbar">Berbagi Tiket</a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="#">Back</a></li>
-          </ul>
+        <nav class="light-blue lighten-1" role="navigation">
+            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo font-navbar">Berbagi Tiket</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#">Back</a></li>
+                </ul>
 
-          <ul id="nav-mobile" class="side-nav">
-            <li><a href="#">Back</a></li>
-          </ul>
-          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-        </div>
-      </nav>
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#">Back</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
     </div>
 
     <!-- <div class="section no-pad-bot" id="index-banner">
@@ -69,92 +71,95 @@
       </div>
     </div>
 </div> -->
-<div class="section no-pad-bot" id="index-banner">
-<div class="container">
-  <br><br>
-  <h5 class="header center orange-text">Pick Date</h5>
-  <br><br><br>
-  <div class="row center">
-    <form class="col s8 offset-s2">
-      <div id="flight" class="col s12">
-        <div class="row margin">
-          <div class="input-field col s12 m6 l6">
-            <i class="material-icons prefix">flight_takeoff</i>
-            <input id="origin" type="text">
-            <label for="username" class="center-align">Origin</label>
-          </div>
-          <div class="input-field col s12 m6 s6">
-            <i class="material-icons prefix">flight_land</i>
-            <input id="destination" type="text">
-            <label for="username" class="center-align">Destination</label>
-          </div>
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+            <br><br>
+            <h5 class="header center orange-text">Pick Date</h5>
+            <br><br><br>
+            <div class="row center">
+                <form class="col s8 offset-s2">
+                    <div id="flight" class="col s12">
+                        <div class="row margin">
+                            <div class="input-field col s12 m6 l6">
+                                <i class="material-icons prefix">flight_takeoff</i>
+                                <input id="origin" type="text">
+                                <label for="username" class="center-align">Origin</label>
+                            </div>
+                            <div class="input-field col s12 m6 s6">
+                                <i class="material-icons prefix">flight_land</i>
+                                <input id="destination" type="text">
+                                <label for="username" class="center-align">Destination</label>
+                            </div>
+                        </div>
+                        <div class="row margin">
+                            <div class="input-field col s12 m12 s12">
+                                <i class="material-icons prefix">alarm</i>
+                                <input id="depart" type="date" class="datepicker">
+                                <label for="depart" class="center-align">Depart</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <br /><br />
+            <div class="row center">
+                <a id="download-button" onclick="test()" class="btn-large waves-effect waves-light orange">Submit</a>
+            </div>
+            <br><br>
+            <div class="row">
+                <div id="listpesawat" class="row">
+
+                </div>
+
+            </div>
+
+            <footer class="page-footer orange">
+                <div class="footer-copyright">
+                    <div class="container">
+                        Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Berbagi Tiket</a>
+                    </div>
+                </div>
+            </footer>
+
         </div>
-        <div class="row margin">
-          <div class="input-field col s12 m12 s12">
-            <i class="material-icons prefix">alarm</i>
-            <input id="depart" type="date" class="datepicker">
-            <label for="depart" class="center-align">Depart</label>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
-  <br /><br />
-  <div class="row center">
-    <a id="download-button" onclick="test()" class="btn-large waves-effect waves-light orange">Submit</a>
-  </div>
-  <br><br>
-  <div class="row">
-    <div id="listpesawat" class="row">
 
 
-    </div>
+        <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
 
-  </div>
+        <script>
+            $('.datepicker').pickadate({
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears: 1 // Creates a dropdown of 15 years to control year
+            });
 
-  <footer class="page-footer orange">
-    <div class="footer-copyright">
-      <div class="container">
-      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Berbagi Tiket</a>
-      </div>
-    </div>
-  </footer>
+            function test() {
+              localStorage.clear()
+                // tanggal
+                var d = new Date(`${$("#depart").val()}`),
+                    month = '' + (d.getMonth() + 1),
+                    day = '' + d.getDate(),
+                    year = d.getFullYear();
+                if (month.length < 2) month = '0' + month;
+                if (day.length < 2) day = '0' + day;
+                var fixDate = [year, month, day].join('-');
+                var origin = $('#origin').val()
+                var destination = $('#destination').val()
+                $.ajax({
+                    url: "http://localhost:3000/gettickets",
+                    type: "POST",
+                    data: {
+                        url: `https://www.tiket.com/pesawat/cari?d=${origin}&a=${destination}&date=${fixDate}&adult=1&child=0&infant=0`
+                    },
+                    success: function(result) {
 
-</div>
-
-
-    <!--  Scripts-->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/materialize.js"></script>
-    <script src="js/init.js"></script>
-
-    <script>
-    $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 1// Creates a dropdown of 15 years to control year
-    });
-
-      function test() {
-        // tanggal
-        var d = new Date(`${$("#depart").val()}`),
-        month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
-        year = d.getFullYear();
-        if (month.length < 2) month = '0' + month;
-        if (day.length < 2) day = '0' + day;
-        var fixDate = [year, month, day].join('-');
-        var origin = $('#origin').val()
-        var destination = $('#destination').val()
-        $.ajax({
-            url: "http://localhost:3000/gettickets",
-            type: "POST",
-            data:{
-                url: `https://www.tiket.com/pesawat/cari?d=${origin}&a=${destination}&date=${fixDate}&adult=1&child=0&infant=0`
-            },
-            success: function(result) {
-                var tampung = "";
-                for (var i = 0; i < result.length; i++) {
-                    tampung +=`  <div class="col s12">
+                        var tampung = "";
+                        for (var i = 0; i < result.length; i++) {
+                          localStorage.setItem(result[i].id, JSON.stringify(result[i]));
+                            tampung +=
+                                `  <div class="col s12">
                         <div class="card darken-1">
                           <div class="card-content">
                             <div class="row margin">
@@ -178,21 +183,31 @@
                                 <p class="detail-main">Baggage</p>
                                 <p class="sub-detail-main">${result[i]['data-baggage']}</p>
                               </div>
+
                               <div class="input-field col s3">
                                 <p class="detail-main">${result[i]['data-price']}</p>
-                                <input type="button" class="btn orange darken-3" value="PESAN">
+                                <input type="button" onclick="pilihtiket('${result[i].id}')" class="btn orange darken-3" value="PESAN">
                               </div>
                             </div>
 
                           </div>
                         </div>
                       </div>`
-                }
-                $("#listpesawat").append(tampung)
-            }
-        });
+                        }
+                        $("#listpesawat").append(tampung)
+                    }
+                });
 
-      }
-      </script>
-   </body>
+            }
+
+            function pilihtiket(idpesawat){
+                console.log(idpesawat)
+                var pesanan = JSON.parse(localStorage.getItem(idpesawat))
+                localStorage.clear()
+                localStorage.setItem(idpesawat, JSON.stringify(pesanan));
+                window.location.assign("http://127.0.0.1:8080/contact-info.html")
+            }
+        </script>
+</body>
+
 </html>
