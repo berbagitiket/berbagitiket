@@ -1,0 +1,15 @@
+.login-page{
+  background-color: rgb(55, 173, 217)
+}
+
+.btn-register{
+  background-color: rgb(255, 36, 108)
+}
+
+.btn-register:hover{
+  background-color: rgb(227, 16, 85)
+}
+
+.btn-register:active{
+  background-color: rgb(130, 0, 43)
+}
