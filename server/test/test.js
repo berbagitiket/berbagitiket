@@ -61,7 +61,7 @@ describe('test sign up', function() {
       var rand = Math.floor((Math.random() * 999) + 1);
       var req = {
         body:{
-          firstname:'timgio',
+          firstname:'timouiuiuiu',
           lastname: 'gio',
           email:'',
           password:'123',
