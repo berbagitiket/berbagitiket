@@ -5,7 +5,7 @@ var userController = require('../controllers/users')
 var userModel = require('../models/user')
 var transController = require('../controllers/transaction')
 var transModel = require('../models/transaction')
-mongoose.connect('mongodb://localhost/berbagitiket');
+mongoose.createConnection('mongodb://localhost/berbagitiket')
 mongoose.Promise = global.Promise;
 
 describe('test sign up', function() {
@@ -61,7 +61,7 @@ describe('test sign up', function() {
       var rand = Math.floor((Math.random() * 999) + 1);
       var req = {
         body:{
-          firstname:'tim',
+          firstname:'timouiuiuiu',
           lastname: 'gio',
           email:'',
           password:'123',
